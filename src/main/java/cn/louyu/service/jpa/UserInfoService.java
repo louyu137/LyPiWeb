@@ -1,6 +1,6 @@
 package cn.louyu.service.jpa;
 
-import cn.louyu.config.Constant;
+import cn.louyu.config.SystemConfig;
 import cn.louyu.models.ResultMsg;
 import cn.louyu.models.UserInfo;
 import cn.louyu.service.jpa.repository.UserInfoRepository;
@@ -9,13 +9,15 @@ import cn.louyu.utils.TextUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.Optional;
 
 @Service
 public class UserInfoService{
     @Autowired
     private UserInfoRepository repository;
+
+    @Autowired
+    private SystemConfig systemConfig;
 
     /**
      * 新添加一个用户
@@ -35,7 +37,7 @@ public class UserInfoService{
             resultMsg.Msg="此用户已存在";
             return resultMsg;
         }
-        userInfo.setPassword(MD5Util.MD5Encode(userInfo.getPassword(), Constant.ENCODING, false));
+        userInfo.setPassword(MD5Util.MD5Encode(userInfo.getPassword(), systemConfig.getEncoding(), false));
         repository.saveAndFlush(userInfo);
         resultMsg.Success=true;
         resultMsg.Msg="添加用户成功";
@@ -60,7 +62,7 @@ public class UserInfoService{
             resultMsg.Msg="修改密码失败，此用户不存在";
             return resultMsg;
         }
-        String pwdMd5=MD5Util.MD5Encode(userInfo.getPassword(), Constant.ENCODING, false);
+        String pwdMd5=MD5Util.MD5Encode(userInfo.getPassword(), systemConfig.getEncoding(), false);
         if(!pwdMd5.equals(user.getPassword())){
             repository.saveAndFlush(userInfo);
         }
@@ -87,7 +89,7 @@ public class UserInfoService{
             resultMsg.Msg = "登录验证失败，用户名或密码错误";
             return resultMsg;
         }
-        String pwdMd5 = MD5Util.MD5Encode(userInfo.getPassword(), Constant.ENCODING, false);
+        String pwdMd5 = MD5Util.MD5Encode(userInfo.getPassword(), systemConfig.getEncoding(), false);
         if (!pwdMd5.equals(user.getPassword())) {
             resultMsg.Msg = "登录验证失败，用户名或密码错误";
             return resultMsg;

@@ -46,6 +46,7 @@ public class PiApiController {
             msg.Msg="获取GPIO控制器实例失败。";
             return msg;
         }
+
         msg.Success=true;
         return msg;
     }

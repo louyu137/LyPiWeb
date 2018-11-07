@@ -1,4 +1,4 @@
-package cn.louyu.controller;
+package cn.louyu.controller.personal;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

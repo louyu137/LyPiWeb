@@ -13,6 +13,24 @@ public class ResultMsg<T extends Object> implements Serializable {
     public int Status;
     public int Count;
 
+    public ResultMsg() {}
+
+    public ResultMsg(boolean success, String msg) {
+        this(success,msg,null);
+    }
+
+    public ResultMsg(boolean success, String msg, T data) {
+       this(success,msg,data,0,0);
+    }
+
+    public ResultMsg(boolean success, String msg, T data, int status, int count) {
+        Success = success;
+        Msg = msg;
+        Data = data;
+        Status = status;
+        Count = count;
+    }
+
     public final String acquireNotNullMsg(){
         return Msg==null?"":Msg;
     }
