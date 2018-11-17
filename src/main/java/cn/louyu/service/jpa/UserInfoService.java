@@ -104,6 +104,7 @@ public class UserInfoService{
      * */
     public UserInfo getUserById(String userName){
         Optional<UserInfo> optional=repository.findById(userName);
+
         if(optional.isPresent())
             return optional.get();
         return null;

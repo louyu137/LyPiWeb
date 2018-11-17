@@ -1,13 +1,207 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>控制台</title>
+    <meta charset="utf-8">
+    <title>控制台</title>
+    <link rel="stylesheet" href="../../layuiadmin/layui/css/layui.css" media="all">
+    <script src="../../layuiadmin/layui/layui.js"></script>
+    <style type="text/css">
+        body{
+            /*background-color: brown;*/
+        }
+        .main {
+            text-align: center;
+            background-color: #fff;
+            border-radius: 20px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            padding: 10px;
+        }
+        .layui-icon{
+            font-size: 26px;
+        }
+
+    </style>
 </head>
 <body>
-    <h1>Hello Raspberry Pi.</h1>
+    <div class="main">
+        <table class="layui-table" lay-skin="row" lay-size="sm">
+            <thead>
+            <tr>
+                <th style="text-align: center;">GPIO</th>
+                <th style="text-align: center;">NAME</th>
+                <th style="text-align: center;"><i class="layui-icon layui-icon-console" style="font-size: 20px;"></i></th>
+                <th style="text-align: center;"><i class="layui-icon layui-icon-console" style="font-size: 20px;"></i></th>
+                <th style="text-align: center;">NAME</th>
+                <th style="text-align: center;">GPIO</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td>3.3 VDC Power</td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style="color: #FF9122;"></i></td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style="color: #FF2C2C;"></i></td>
+                    <td>5.0 VDC Power</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>GPIO 8 SDA1(I2C)</td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style=" color: #A0A0A0;"></i></td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style=" color: #FF2C2C;"></i></td>
+                    <td>5.0 VDC Power</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>GPIO 9 SCL1(I2C)</td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style=" color: #A0A0A0;"></i></td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style=" color: #000000;"></i></td>
+                    <td>Ground</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>GPIO 7 GPCLK0</td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style=" color: #A0A0A0;"></i></td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style=" color: #A0A0A0;"></i></td>
+                    <td>GPIO 15 TxD(UART)</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Ground</td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style=" color: #000000;"></i></td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style=" color: #A0A0A0;"></i></td>
+                    <td>GPIO 16 RxD(UART)</td>
+                    <td>16</td>
+                </tr>
+                <tr>
+                    <td>0</td>
+                    <td>GPIO 0</td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style=" color: #A0A0A0;"></i></td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style=" color: #A0A0A0;"></i></td>
+                    <td>GPIO 1 PCM_CLK/PWM0</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>GPIO 2</td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style=" color: #A0A0A0;"></i></td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style=" color: #000000;"></i></td>
+                    <td>Ground</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>GPIO 3</td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style=" color: #A0A0A0;"></i></td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style=" color: #000000;"></i></td>
+                    <td>GPIO 4</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>3.3 VDC Power</td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style=" color: #FF9122;"></i></td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style=" color: #A0A0A0;"></i></td>
+                    <td>GPIO 5</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>GPIO 12 MOSI(SPI)</td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style=" color: #A0A0A0;"></i></td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style=" color: #000000;"></i></td>
+                    <td>Ground</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>GPIO 13 MOSI(SPI)</td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style=" color: #A0A0A0;"></i></td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style=" color: #A0A0A0;"></i></td>
+                    <td>GPIO 6</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>GPIO 14 SCLK(SPI)</td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style=" color: #A0A0A0;"></i></td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style=" color: #A0A0A0;"></i></td>
+                    <td>GPIO 10 CE0(SPI)</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Ground</td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style=" color: #000000;"></i></td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style=" color: #A0A0A0;"></i></td>
+                    <td>GPIO 11 CE1(SPI)</td>
+                    <td>11</td>
+                </tr>
+                <tr>
+                    <td>30</td>
+                    <td>SDA0 (I2C ID EEPROM)</td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style=" color: #FFFF2C;"></i></td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style=" color: #FFFF2C;"></i></td>
+                    <td>SCL0 (I2C ID EEPROM)</td>
+                    <td>31</td>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td>GPIO 21 GPCLK1</td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style=" color: #A0A0A0;"></i></td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style=" color: #000000;"></i></td>
+                    <td>Ground</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>22</td>
+                    <td>GPIO 22 GPCLK2</td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style=" color: #A0A0A0;"></i></td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style=" color: #A0A0A0;"></i></td>
+                    <td>GPIO 26 PWM0</td>
+                    <td>26</td>
+                </tr>
+                <tr>
+                    <td>23</td>
+                    <td>GPIO 23 PWM1</td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style=" color: #A0A0A0;"></i></td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style=" color: #000000;"></i></td>
+                    <td>Ground</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>24</td>
+                    <td>GPIO 24 PCM_FS/PWM1</td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style=" color: #A0A0A0;"></i></td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style=" color: #A0A0A0;"></i></td>
+                    <td>GPIO 27</td>
+                    <td>27</td>
+                </tr>
+                <tr>
+                    <td>25</td>
+                    <td>GPIO 25</td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style=" color: #A0A0A0;"></i></td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style=" color: #A0A0A0;"></i></td>
+                    <td>GPIO 28 PCM_DIN</td>
+                    <td>28</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Ground</td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style=" color: #000000;"></i></td>
+                    <td><i class="layui-icon layui-icon-circle-dot" style=" color: #A0A0A0;"></i></td>
+                    <td>GPIO 29 PCM_DOUT</td>
+                    <td>29</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
 

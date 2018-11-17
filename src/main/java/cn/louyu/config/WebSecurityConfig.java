@@ -56,6 +56,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         //解决非thymeleaf的form表单提交被拦截问题
         http.csrf().disable();
+        //解决Refused to display 'url' in a frame because it set 'X-Frame-Options' to 'deny'.
+        http.headers().frameOptions().disable();
+
         //解决中文乱码问题
         CharacterEncodingFilter filter = new CharacterEncodingFilter();
         filter.setEncoding("UTF-8");
